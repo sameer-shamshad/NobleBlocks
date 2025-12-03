@@ -1,0 +1,1144 @@
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>NobleBlocks | The Social Network for Science</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="NobleBlocks | The Social Network for Science">
+    <meta name="description" content="NobleBlocks is the decentralized social network for science. Upload papers, scan for errors with AI, extract data, generate audio podcasts, and publish preprints.">
+    <meta name="keywords" content="science, social network, research, AI, preprints, academic publishing, decentralized science, DeSci, scientific validation, paper to podcast, EDDII, systematic review">
+    <meta name="author" content="NobleBlocks">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href="https://nobleblocks.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nobleblocks.com/">
+    <meta property="og:title" content="NobleBlocks | The Social Network for Science">
+    <meta property="og:description" content="Do more with your papers. AI validation, data extraction, audio generation, and community interaction for researchers.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&amp;fit=crop&amp;q=80&amp;w=1200&amp;h=630">
+    <meta property="og:site_name" content="NobleBlocks">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://nobleblocks.com/">
+    <meta name="twitter:title" content="NobleBlocks | The Social Network for Science">
+    <meta name="twitter:description" content="Turn your research paper into a conversation. Join the social network for science.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&amp;fit=crop&amp;q=80&amp;w=1200&amp;h=630">
+    <meta name="twitter:creator" content="@nobleblocks">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "NobleBlocks",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web",
+      "url": "https://nobleblocks.com",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "The decentralized social network for science. Tools for validation, extraction, and publishing.",
+      "featureList": "AI Validation, Data Extraction, Audio Generation, Preprint Publishing, Social Networking for Scientists",
+      "author": {
+        "@type": "Organization",
+        "name": "NobleBlocks Ltd."
+      },
+      "sameAs": [
+        "https://twitter.com/nobleblocks",
+        "https://linkedin.com/company/nobleblocks"
+      ]
+    }
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* FADE Animation Logic - Updated for 4 screens (20s cycle) */
+        .card-stack { 
+            position: relative; 
+            height: 520px; 
+            width: 100%; 
+            max-width: 480px; 
+            margin: 0 auto;
+        }
+        
+        /* Mobile adjustment for stack height */
+        @media (max-width: 640px) {
+            .card-stack {
+                height: 480px; /* Adjusted for mobile viewports */
+                transform: scale(0.95); /* Slight shrink to fit tight screens */
+            }
+        }
+
+        .hero-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            animation: fade-cycle 20s infinite ease-in-out;
+            top: 0; left: 0;
+            background: white;
+            border-radius: 1.5rem;
+            border: 1px solid #e2e8f0;
+            opacity: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-card:nth-child(1) { animation-delay: 0s; }
+        .hero-card:nth-child(2) { animation-delay: 5s; }
+        .hero-card:nth-child(3) { animation-delay: 10s; }
+        .hero-card:nth-child(4) { animation-delay: 15s; }
+
+        @keyframes fade-cycle {
+            0% { opacity: 0; transform: scale(0.98) translateY(10px); z-index: 10; }
+            2% { opacity: 1; transform: scale(1) translateY(0); z-index: 20; }
+            23% { opacity: 1; transform: scale(1) translateY(0); z-index: 20; }
+            25% { opacity: 0; transform: scale(1.02) translateY(-10px); z-index: 10; }
+            100% { opacity: 0; transform: scale(0.98) translateY(10px); z-index: 10; }
+        }
+
+        /* Wave animations */
+        @keyframes wave {
+            0%, 100% { height: 10%; }
+            50% { height: 100%; }
+        }
+        .animate-wave-1 { animation: wave 1s ease-in-out infinite 0.1s; }
+        .animate-wave-2 { animation: wave 1s ease-in-out infinite 0.2s; }
+        .animate-wave-3 { animation: wave 1s ease-in-out infinite 0.4s; }
+        .animate-wave-4 { animation: wave 1s ease-in-out infinite 0.3s; }
+        
+        /* Extra Animations for EDDII Scan effect */
+        @keyframes scan {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+        @keyframes scan-line {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .animate-scan { animation: scan 3s linear infinite; }
+        .animate-scan-line { animation: scan-line 3s linear infinite; }
+        
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased selection:bg-purple-100 selection:text-purple-900 overflow-x-hidden">
+
+    <!-- Background Gradients -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="blob bg-blue-50 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2 mix-blend-multiply"></div>
+        <div class="blob bg-purple-50 w-[600px] h-[600px] rounded-full top-1/2 right-0 translate-x-1/3 -translate-y-1/2 mix-blend-multiply"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-panel" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold tracking-tight text-lg shadow-lg shadow-slate-900/20">
+                    Nb
+                </div>
+                <span class="font-bold text-lg tracking-tight text-slate-900">NobleBlocks</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-500">
+                <a href="#features" class="hover:text-slate-900 transition-colors">Tools</a>
+                <a href="#community" class="hover:text-slate-900 transition-colors">Community</a>
+                <a href="#plans" class="hover:text-slate-900 transition-colors">Plans</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button class="hidden md:block text-sm font-semibold text-slate-500 hover:text-slate-900">Log in</button>
+                <button class="bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold py-2 px-4 rounded-full transition-all hover:shadow-lg whitespace-nowrap">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 lg:pt-40 lg:pb-24 px-4 sm:px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            <!-- Hero Content -->
+            <div class="relative z-10 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide mb-6 sm:mb-8">
+                    <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                    Science is social
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 text-slate-900">
+                    Do more with your papers than just <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">reading them.</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed font-medium px-2 sm:px-0">
+                    Upload a paper once. NobleBlocks helps you scan for errors, extract data, turn it into audio, publish your preprint, and share it with a community of researchers.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <button class="bg-slate-900 hover:bg-slate-800 text-white text-base font-semibold py-3.5 px-8 rounded-full transition-all shadow-xl shadow-slate-900/20 hover:-translate-y-1 flex items-center justify-center gap-2">
+                        Get Started
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    <button class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-base font-semibold py-3.5 px-8 rounded-full transition-all flex items-center justify-center gap-2 shadow-sm">
+                        Browse Papers
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hero Visual (Fade Stack) -->
+            <div class="relative z-10 lg:translate-x-6 flex items-center justify-center h-[480px] sm:h-[520px] w-full mt-8 lg:mt-0">
+                <!-- Background Glow -->
+                <div class="absolute w-full h-full bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-[3rem] blur-3xl -z-10 transform rotate-3 scale-110"></div>
+
+                <div class="card-stack">
+                    
+                    <!-- Card 1: Validation Scan Report -->
+                    <div class="hero-card">
+                        <!-- Header -->
+                        <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center border border-red-200 shrink-0">
+                                    <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Validation Scan</div>
+                                    <div class="text-sm font-bold text-slate-900 truncate">analysis_final_v2.pdf</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 shrink-0">
+                                <span class="text-xs font-semibold text-slate-500 hidden sm:inline">Score:</span>
+                                <span class="text-sm font-bold text-red-600 bg-red-50 border border-red-100 px-2 py-0.5 rounded">B-</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Content -->
+                        <div class="p-0 flex flex-col h-full overflow-hidden bg-white">
+                            <!-- Stats Row -->
+                            <div class="flex border-b border-slate-100 divide-x divide-slate-100">
+                                <div class="flex-1 p-3 text-center hover:bg-slate-50 transition-colors">
+                                    <div class="text-[10px] sm:text-xs text-slate-400 font-medium">Critical Errors</div>
+                                    <div class="text-base sm:text-lg font-bold text-red-600">2</div>
+                                </div>
+                                <div class="flex-1 p-3 text-center hover:bg-slate-50 transition-colors">
+                                    <div class="text-[10px] sm:text-xs text-slate-400 font-medium">Warnings</div>
+                                    <div class="text-base sm:text-lg font-bold text-amber-500">5</div>
+                                </div>
+                                <div class="flex-1 p-3 text-center hover:bg-slate-50 transition-colors">
+                                    <div class="text-[10px] sm:text-xs text-slate-400 font-medium">Formatting</div>
+                                    <div class="text-base sm:text-lg font-bold text-emerald-600">100%</div>
+                                </div>
+                            </div>
+
+                            <!-- Issue List -->
+                            <div class="flex-1 overflow-hidden p-4 space-y-3 relative">
+                                <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
+                                
+                                <!-- Issue 1 (Expanded) -->
+                                <div class="border border-red-100 rounded-xl overflow-hidden shadow-sm">
+                                    <div class="bg-red-50 p-3 flex gap-3 items-start">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-red-500 mt-0.5 shrink-0"></i>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex justify-between items-start flex-wrap gap-1">
+                                                <h4 class="text-xs font-bold text-slate-900">Broken Reference Link</h4>
+                                                <span class="text-[10px] font-mono text-red-600 bg-white/50 px-1.5 rounded whitespace-nowrap">Line 142</span>
+                                            </div>
+                                            <p class="text-[10px] text-slate-600 mt-1 truncate">Citation [12] points to a DOI that returns 404.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Context Snippet -->
+                                    <div class="bg-slate-900 p-3 overflow-x-auto">
+                                        <code class="font-mono text-[10px] text-slate-300 whitespace-nowrap">
+                                            <div class="opacity-50">141 &nbsp; previous studies [10, 11]. However,</div>
+                                            <div class="bg-red-500/20 text-red-200 -mx-3 px-3 border-l-2 border-red-500">142 &nbsp; Smith et al. <span class="bg-red-500/40 text-white px-1 rounded">[12]</span> argued that quantum</div>
+                                            <div class="opacity-50">143 &nbsp; tunneling effects are negligible at</div>
+                                        </code>
+                                    </div>
+                                </div>
+
+                                <!-- Issue 2 -->
+                                <div class="border border-amber-100 rounded-xl bg-white p-3 flex gap-3 items-start hover:shadow-md transition-shadow">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500 mt-0.5 shrink-0"></i>
+                                    <div>
+                                        <div class="flex justify-between w-full gap-2">
+                                            <h4 class="text-xs font-bold text-slate-900">Low Resolution Figure</h4>
+                                        </div>
+                                        <p class="text-[10px] text-slate-500 mt-1 line-clamp-2">Figure 3 is 150dpi. Journals typically require 300dpi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Updated Podcast Player -->
+                    <div class="hero-card !border-0 bg-[#0c0c0e] relative overflow-hidden flex flex-col">
+                        <div class="px-5 py-3 border-b border-white/10 flex items-center justify-between bg-white/5 backdrop-blur z-20 relative">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center border border-purple-500/30 shrink-0">
+                                    <i data-lucide="mic-2" class="w-4 h-4"></i>
+                                </div>
+                                <div class="flex flex-col min-w-0">
+                                    <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Audio Generation</span>
+                                    <span class="text-sm font-bold text-white truncate">Turn your paper into a podcast</span>
+                                </div>
+                            </div>
+                            <div class="hidden sm:block px-2 py-0.5 rounded bg-purple-500 text-white text-[10px] font-bold shadow-lg shadow-purple-500/20">PaperCast™</div>
+                        </div>
+
+                        <div class="flex-1 relative flex items-center justify-center p-4">
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-slate-900 to-black z-0"></div>
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px]"></div>
+                            
+                            <!-- Player Widget -->
+                            <article class="w-full rounded-2xl border border-zinc-800 bg-[#121214] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.5)] overflow-hidden group ring-1 ring-white/5 relative z-30 transition-all duration-300">
+                                <div class="p-4 sm:p-6 flex flex-col gap-5 sm:gap-6 relative z-10 pointer-events-none">
+                                    <div class="flex gap-4 items-center">
+                                        <div class="shrink-0 w-20 h-20 sm:w-28 sm:h-28 relative rounded-xl overflow-hidden shadow-lg bg-zinc-900 ring-1 ring-white/10 group-hover:ring-purple-500/30 transition-all pointer-events-auto">
+                                        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&amp;h=400&amp;fit=crop&amp;q=80" alt="Magellanic Clouds Nebula" class="absolute inset-0 w-full h-full object-cover">
+                                        </div>
+                
+                                        <div class="flex-1 flex flex-col justify-center min-w-0 pointer-events-auto">
+                                            <div class="mb-1 transition-all">
+                                                <div class="flex items-center gap-2 mb-1.5">
+                                                    <span class="text-[10px] font-bold text-purple-400 uppercase tracking-widest truncate">Astrophysics</span>
+                                                    <span class="text-[10px] text-zinc-600">•</span>
+                                                    <span class="text-[10px] font-medium text-zinc-400 whitespace-nowrap">12k Views</span>
+                                                </div>
+                                                <h2 class="text-base sm:text-lg font-bold text-white truncate leading-tight">Europium Abundances</h2>
+                                                <p class="text-xs text-zinc-400 line-clamp-1 mb-2">Small Magellanic Cloud • Episode 142</p>
+                                                
+                                                <div class="flex items-center gap-2">
+                                                    <div class="flex -space-x-2 overflow-hidden shrink-0">
+                                                        <img class="inline-block h-4 w-4 rounded-full ring-2 ring-[#121214] grayscale" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&amp;h=64&amp;fit=crop" alt="Alex">
+                                                        <img class="inline-block h-4 w-4 rounded-full ring-2 ring-[#121214] grayscale" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=64&amp;h=64&amp;fit=crop" alt="Sam">
+                                                    </div>
+                                                    <span class="text-[10px] font-medium text-zinc-500 truncate">Hosted by Alex &amp; Sam</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    <div class="w-full pointer-events-auto">
+                                        <div class="mb-4 group/slider w-full">
+                                            <div class="flex justify-between text-[10px] font-medium text-zinc-500 mb-1.5 font-mono">
+                                                <span class="text-zinc-300">00:12</span>
+                                                <span>15:20</span>
+                                            </div>
+                                            <div class="relative w-full h-1 bg-zinc-800 rounded-full cursor-pointer py-1 -my-1">
+                                                <div class="absolute left-0 top-1 bottom-1 w-[40%] bg-zinc-700 rounded-full opacity-50 pointer-events-none"></div>
+                                                <div class="absolute left-0 top-1 bottom-1 w-[2%] bg-purple-500 rounded-full shadow-[0_0_12px_rgba(168,85,247,0.5)] pointer-events-none"></div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="flex items-center justify-between gap-4 w-full">
+                                            <div class="flex items-center gap-3 sm:gap-5 flex-1 justify-between sm:justify-start">
+                                                <button class="text-zinc-500 hover:text-white transition-colors active:scale-90 transform">
+                                                    <i data-lucide="rewind" class="w-5 h-5 fill-current"></i>
+                                                </button>
+                                                <button class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white hover:bg-zinc-200 text-black flex items-center justify-center transition-transform active:scale-95 shadow-lg shadow-white/5">
+                                                    <i data-lucide="pause" class="w-5 h-5 fill-current"></i>
+                                                </button>
+                                                <button class="text-zinc-500 hover:text-white transition-colors active:scale-90 transform">
+                                                    <i data-lucide="fast-forward" class="w-5 h-5 fill-current"></i>
+                                                </button>
+                                            </div>
+                                            <div class="hidden sm:flex items-center gap-4">
+                                                <div class="flex items-center gap-2 group/vol">
+                                                    <button class="text-zinc-500 hover:text-white transition-colors">
+                                                        <i data-lucide="volume-2" class="w-4 h-4"></i>
+                                                    </button>
+                                                    <div class="w-16 h-4 flex items-center cursor-pointer">
+                                                        <div class="w-full h-1 bg-zinc-800 rounded-full overflow-hidden relative">
+                                                            <div class="absolute left-0 top-0 bottom-0 w-2/3 bg-zinc-600 group-hover/vol:bg-zinc-400 transition-all"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Chat with Paper -->
+                    <div class="hero-card">
+                        <!-- Chat Header -->
+                        <div class="px-5 py-4 border-b border-slate-100 bg-white/95 backdrop-blur flex justify-between items-center z-20">
+                            <div class="flex flex-col min-w-0">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Chat with the paper</span>
+                                </div>
+                                <h3 class="text-sm font-bold text-slate-900 truncate max-w-[150px] sm:max-w-[200px]">CRISPR-Cas9 Editing Efficiency v4.pdf</h3>
+                            </div>
+                            <div class="flex -space-x-2 shrink-0">
+                                <div class="w-7 h-7 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-[10px] font-bold text-blue-600">AI</div>
+                            </div>
+                        </div>
+
+                        <!-- Chat Stream -->
+                        <div class="flex-1 bg-slate-50 p-4 space-y-5 overflow-hidden flex flex-col relative">
+                            <!-- Top fade -->
+                            <div class="absolute top-0 left-0 w-full h-6 bg-gradient-to-b from-slate-50 to-transparent z-10"></div>
+                            
+                            <div class="opacity-40 text-center text-[10px] text-slate-400 my-2">Today, 2:30 PM</div>
+
+                            <!-- Bot Message 1 -->
+                            <div class="flex gap-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white shrink-0 shadow-md mt-1">
+                                    <i data-lucide="bot" class="w-4 h-4"></i>
+                                </div>
+                                <div class="space-y-1 max-w-[85%]">
+                                    <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3.5 shadow-sm">
+                                        <p class="text-xs text-slate-700 leading-relaxed">
+                                            According to <span class="font-bold text-slate-900">Figure 2A</span>, the editing efficiency peaked at 48 hours post-transfection.
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-lg p-1.5 pr-3 shadow-sm hover:border-blue-300 transition-colors cursor-pointer group">
+                                        <div class="w-8 h-8 bg-slate-100 rounded flex items-center justify-center group-hover:bg-blue-50 shrink-0">
+                                            <i data-lucide="bar-chart-2" class="w-4 h-4 text-slate-500 group-hover:text-blue-500"></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <div class="text-[10px] font-bold text-slate-900">View Fig 2A</div>
+                                            <div class="text-[9px] text-slate-400">Page 5 • Results</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Message -->
+                            <div class="flex justify-end gap-3 items-end">
+                                <div class="space-y-1 max-w-[85%] flex flex-col items-end">
+                                    <div class="bg-blue-600 text-white rounded-2xl rounded-tr-none p-3 shadow-md">
+                                        <div class="flex items-center gap-3">
+                                            <button class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors shrink-0">
+                                                <i data-lucide="play" class="w-3 h-3 fill-current ml-0.5"></i>
+                                            </button>
+                                            <div class="h-4 flex items-center gap-0.5">
+                                                <div class="w-1 bg-white/60 h-2 animate-wave-1"></div>
+                                                <div class="w-1 bg-white/90 h-4 animate-wave-2"></div>
+                                                <div class="w-1 bg-white/70 h-3 animate-wave-3"></div>
+                                                <div class="w-1 bg-white/90 h-4 animate-wave-1"></div>
+                                                <div class="w-1 bg-white/60 h-2 animate-wave-4"></div>
+                                            </div>
+                                            <span class="text-[10px] font-mono text-blue-100">0:05</span>
+                                        </div>
+                                        <p class="text-xs mt-2 border-t border-white/20 pt-2 font-medium">
+                                            "Does this correlate with the off-target effects mentioned in the discussion?"
+                                        </p>
+                                    </div>
+                                    <span class="text-[10px] text-slate-400 font-medium">Transcribed</span>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-slate-200 shrink-0 overflow-hidden shadow-sm border border-white">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=100&amp;q=80" alt="User" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Global Search / Discovery -->
+                    <div class="hero-card">
+                         <!-- Search Header -->
+                         <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-white">
+                             <div class="relative w-full">
+                                 <i data-lucide="search" class="absolute left-3 top-2.5 w-4 h-4 text-slate-400"></i>
+                                 <input type="text" value="Optogenetics in neural circuits" class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-100" readonly="">
+                             </div>
+                         </div>
+ 
+                         <!-- Filter Tabs -->
+                         <div class="px-5 py-2 border-b border-slate-100 flex gap-4 text-[10px] font-bold text-slate-500 overflow-x-auto hide-scroll">
+                             <span class="text-slate-900 border-b-2 border-slate-900 pb-2 whitespace-nowrap">All Papers</span>
+                             <span class="hover:text-slate-800 cursor-pointer pb-2 whitespace-nowrap">Preprints</span>
+                             <span class="hover:text-slate-800 cursor-pointer pb-2 whitespace-nowrap">Data Sets</span>
+                             <span class="hover:text-slate-800 cursor-pointer pb-2 whitespace-nowrap">Authors</span>
+                         </div>
+ 
+                         <!-- Results List -->
+                         <div class="flex-1 overflow-y-auto bg-slate-50 p-2 space-y-2">
+                             <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors group cursor-pointer">
+                                 <div class="flex justify-between items-start mb-1">
+                                     <span class="bg-green-50 text-green-700 text-[9px] font-bold px-1.5 py-0.5 rounded border border-green-100">PDF Available</span>
+                                     <i data-lucide="bookmark" class="w-3.5 h-3.5 text-slate-300 group-hover:text-blue-500"></i>
+                                 </div>
+                                 <h4 class="text-sm font-bold text-slate-900 leading-snug mb-1">Optogenetic control of neural activity in genetically targeted cells</h4>
+                                 <div class="text-[10px] text-slate-500 mb-2">Boyden, E.S. et al. • Nature Neuroscience • 2005</div>
+                                 <div class="flex items-center gap-3">
+                                     <div class="flex items-center gap-1 text-[10px] font-bold text-slate-600">
+                                         <i data-lucide="quote" class="w-3 h-3"></i> 4,502
+                                     </div>
+                                     <div class="flex items-center gap-1 text-[10px] font-bold text-slate-600">
+                                        <i data-lucide="star" class="w-3 h-3"></i> 4.9
+                                    </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO HEADER -->
+    <div id="features" class="bg-slate-50 pt-20 pb-10 text-center px-4 sm:px-6">
+        <h2 class="text-lg font-semibold text-purple-600 tracking-tight uppercase mb-3">Features</h2>
+        <h3 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">What you can do on NobleBlocks</h3>
+        <p class="mt-4 text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto px-4">Powerful built-in tools to accelerate your research workflow.</p>
+    </div>
+
+    <!-- 1. SEARCH MILLIONS -->
+    <section class="w-full py-16 md:py-24 border-b border-slate-100 overflow-hidden relative bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Block: Order 1 on mobile (first), Order 1 on Desktop (left) -->
+                <div class="space-y-6 max-w-xl mx-auto lg:mx-0 text-center lg:text-left order-1">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-xs font-semibold uppercase tracking-wide">
+                            <i data-lucide="search" class="w-3 h-3"></i> Global Database
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                            Search <span class="text-amber-600 block sm:inline">Millions.</span>
+                        </h2>
+                        <p class="text-lg text-slate-500 font-medium leading-relaxed">
+                            Quickly find studies to include in your work from our massive database. Filter by citation count, date, and methodology.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image Block: Order 2 on mobile (second), Order 2 on Desktop (right) -->
+                <div class="relative w-full max-w-md mx-auto lg:max-w-none mt-2 lg:mt-0 order-2 mb-28 lg:mb-0">
+                    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 pb-12">
+                         <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-lucide="search" class="w-5 h-5 text-slate-400"></i>
+                            </div>
+                            <input type="text" class="block w-full pl-10 pr-3 py-3 border border-slate-200 rounded-lg leading-5 bg-slate-50 placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-amber-200 transition-all shadow-sm" placeholder="Search for 'Optogenetics'..." value="Optogene">
+                            
+                            <div class="absolute top-14 w-full bg-white rounded-lg shadow-xl border border-slate-100 overflow-hidden z-20">
+                                <div class="px-4 py-2 bg-slate-50 text-xs font-bold text-slate-400 uppercase tracking-wider">Top Results</div>
+                                <div class="p-3 hover:bg-amber-50 cursor-pointer border-b border-slate-50">
+                                    <div class="font-bold text-slate-900 text-sm">Optogenetics in Neural Systems</div>
+                                    <div class="text-xs text-slate-500 flex justify-between mt-1">
+                                        <span>Boyden et al. (2015)</span>
+                                        <span class="text-amber-600 font-medium">12.5k Citations</span>
+                                    </div>
+                                </div>
+                                <div class="p-3 hover:bg-amber-50 cursor-pointer">
+                                    <div class="font-bold text-slate-900 text-sm">Optogenetic Control of Behavior</div>
+                                    <div class="text-xs text-slate-500 flex justify-between mt-1">
+                                        <span>Deisseroth (2011)</span>
+                                        <span class="text-amber-600 font-medium">8.2k Citations</span>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. CHAT WITH PAPERS -->
+    <section class="w-full py-16 md:py-24 border-b border-slate-100 overflow-hidden relative bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                 <!-- Image Block: Order 2 on mobile (second), Order 1 on Desktop (left) -->
+                 <div class="relative w-full max-w-md mx-auto lg:max-w-none order-2 lg:order-1">
+                    <div class="relative bg-white rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden">
+                        <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center"><i data-lucide="bot" class="w-4 h-4"></i></div>
+                                <div class="text-sm font-bold">Paper Assistant</div>
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-5 h-80 bg-slate-50/30 flex flex-col justify-end">
+                            <div class="flex justify-end items-end gap-2">
+                                <span class="text-xs text-slate-400 mb-2">You</span>
+                                <div class="bg-blue-600 text-white rounded-2xl rounded-tr-sm py-3 px-4 shadow-md flex items-center gap-3 min-w-[140px]">
+                                    <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center shrink-0">
+                                        <i data-lucide="mic" class="w-3 h-3 text-white"></i>
+                                    </div>
+                                    <div class="flex items-center gap-0.5 h-4">
+                                        <div class="w-1 bg-white/70 rounded-full animate-wave-1"></div>
+                                        <div class="w-1 bg-white/90 rounded-full animate-wave-2"></div>
+                                        <div class="w-1 bg-white/60 rounded-full animate-wave-3"></div>
+                                        <div class="w-1 bg-white/80 rounded-full animate-wave-4"></div>
+                                        <div class="w-1 bg-white/70 rounded-full animate-wave-2"></div>
+                                    </div>
+                                    <span class="text-xs font-medium ml-auto">0:04</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-start gap-3">
+                                <div class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center shrink-0 mt-2"><i data-lucide="bot" class="w-4 h-4"></i></div>
+                                <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-sm py-4 px-5 max-w-[90%] text-sm shadow-sm space-y-3">
+                                    <p class="text-slate-700">Figure 2 indicates a <strong>logarithmic growth</strong> pattern in neuron density over time.</p>
+                                    <div class="bg-slate-100 rounded-lg p-2 flex gap-2 items-center cursor-pointer hover:bg-slate-200 transition-colors">
+                                        <div class="bg-white p-1 rounded border border-slate-200 shrink-0">
+                                            <i data-lucide="image" class="w-4 h-4 text-slate-500"></i>
+                                        </div>
+                                        <span class="text-xs font-semibold text-slate-600 truncate">View Source: Figure 2 (Page 4)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4 border-t border-slate-100 bg-white">
+                            <div class="relative flex gap-2">
+                                <button class="w-10 h-10 border border-slate-200 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-50 transition-colors shrink-0">
+                                    <i data-lucide="mic" class="w-5 h-5"></i>
+                                </button>
+                                <div class="relative flex-1">
+                                    <input type="text" placeholder="Ask a follow-up question..." class="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 pl-4 pr-12 text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all">
+                                    <button class="absolute right-2 top-1.5 w-7 h-7 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                        <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Block: Order 1 on mobile (first), Order 2 on Desktop (right) -->
+                <div class="space-y-6 max-w-xl mx-auto lg:mx-0 text-center lg:text-left order-1 lg:order-2">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide">
+                            <i data-lucide="message-square-dashed" class="w-3 h-3"></i> Interactive Reading
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                            Chat with <span class="text-blue-600 block sm:inline">Papers.</span>
+                        </h2>
+                        <p class="text-lg text-slate-500 font-medium leading-relaxed">
+                            Ask questions directly to figures and tables via text or voice. Get cited answers instantly. Stop scrolling back and forth—just ask.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SCAN FOR ERRORS -->
+    <section class="w-full py-16 md:py-24 border-b border-slate-100 overflow-hidden relative bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                 <!-- Text Block: Order 1 on mobile (first), Order 1 on Desktop (left) -->
+                 <div class="space-y-6 max-w-xl mx-auto lg:mx-0 text-center lg:text-left order-1">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-red-700 text-xs font-semibold uppercase tracking-wide">
+                            <i data-lucide="scan-line" class="w-3 h-3"></i> Automated Validation
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                            Scan for <span class="text-red-600 block sm:inline">Errors.</span>
+                        </h2>
+                        <p class="text-lg text-slate-500 font-medium leading-relaxed">
+                            Automatically flag issues in methodology, logic, and citations before you submit. Don't let a simple mistake trigger a rejection.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-4 justify-center lg:justify-start">
+                        <button class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-base font-semibold px-6 py-3.5 rounded-full shadow-lg shadow-slate-900/20 transition-all">
+                            Start Free Scan
+                        </button>
+                    </div>
+                </div>
+
+                 <!-- Image Block: Order 2 on mobile (second), Order 2 on Desktop (right) -->
+                 <div class="relative w-full max-w-md mx-auto lg:max-w-none order-2">
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-red-400/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden relative">
+                        <!-- Header -->
+                        <div class="bg-white border-b border-slate-100 p-4 flex justify-between items-center">
+                            <span class="font-bold text-slate-800 text-sm">Validation Report</span>
+                            <span class="bg-red-50 text-red-600 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider border border-red-100">2 Critical</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="p-6 bg-slate-50/50">
+                            <div class="space-y-3">
+                                <div class="bg-white p-4 rounded-xl shadow-sm flex gap-4 items-start group hover:shadow-md transition-shadow">
+                                    <div class="bg-red-100 p-2 rounded-lg text-red-600 shrink-0">
+                                        <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-sm">Statistical Inconsistency</h4>
+                                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">The reported p-value (0.04) does not match the confidence interval provided in Table 2.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-xl shadow-sm flex gap-4 items-start group hover:shadow-md transition-shadow">
+                                    <div class="bg-amber-100 p-2 rounded-lg text-amber-600 shrink-0">
+                                        <i data-lucide="link-2-off" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-sm">Retracted Citation</h4>
+                                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">Reference [12] "Smith et al." was retracted in 2021. Please verify.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EXTRACT DATA (EDDII) -->
+    <section class="w-full py-16 md:py-24 border-b border-slate-100 overflow-hidden relative bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Image Block: Order 2 on mobile, Order 1 on Desktop (left) -->
+                <div class="relative w-full max-w-md mx-auto lg:max-w-none order-2 lg:order-1">
+                    <div class="absolute top-10 left-10 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl -z-10"></div>
+                    
+                    <div class="bg-white rounded-2xl shadow-2xl overflow-hidden relative border border-slate-200 flex flex-col sm:grid sm:grid-cols-5 sm:h-[340px]">
+                        <!-- Left: Visual Scanning Representation -->
+                        <div class="sm:col-span-2 bg-slate-50 border-b sm:border-b-0 sm:border-r border-slate-200 relative p-4 flex flex-col items-center justify-center min-h-[200px]">
+                            <!-- Scanner Overlay -->
+                            <div class="relative z-10 w-full h-32 bg-white rounded-lg border border-slate-200 shadow-sm p-2 flex flex-col justify-end overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-b from-emerald-500/0 via-emerald-500/0 to-emerald-500/10 animate-scan"></div>
+                                <div class="absolute top-0 w-full h-0.5 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)] animate-scan-line"></div>
+                                
+                                <div class="flex items-end gap-1 h-full opacity-60">
+                                    <div class="w-full bg-slate-300 h-[20%] rounded-t-sm"></div>
+                                    <div class="w-full bg-slate-300 h-[40%] rounded-t-sm"></div>
+                                    <div class="w-full bg-slate-300 h-[75%] rounded-t-sm"></div>
+                                    <div class="w-full bg-emerald-500 h-[90%] rounded-t-sm"></div>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex items-center gap-2">
+                                <span class="relative flex h-2 w-2">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                </span>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Scanning Figure 1A</span>
+                            </div>
+                        </div>
+
+                        <!-- Right: Clean Data Card -->
+                        <div class="sm:col-span-3 bg-white p-6 flex flex-col">
+                            <div class="flex justify-between items-center mb-6">
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-emerald-100 p-1.5 rounded text-emerald-700">
+                                        <i data-lucide="table-2" class="w-4 h-4"></i>
+                                    </div>
+                                    <span class="font-bold text-slate-800 text-sm">Extracted Data</span>
+                                </div>
+                                <span class="bg-slate-100 text-slate-500 text-[10px] font-bold px-2 py-1 rounded">JSON / CSV</span>
+                            </div>
+
+                            <div class="space-y-4 mb-auto">
+                                <div class="flex justify-between items-end border-b border-slate-100 pb-2">
+                                    <span class="text-xs text-slate-400 font-medium uppercase">Metric</span>
+                                    <span class="text-xs text-slate-400 font-medium uppercase">Value</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-semibold text-slate-700">Substrate Velocity</span>
+                                    <span class="text-sm font-bold text-slate-900">62.3 <span class="text-emerald-500 text-[10px] ml-1">▲</span></span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-semibold text-slate-700">Error Margin</span>
+                                    <span class="text-sm font-bold text-slate-900">± 1.1</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-semibold text-slate-700">Correlation (r)</span>
+                                    <span class="text-sm font-bold text-slate-900">0.98</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 space-y-2">
+                                <button class="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 rounded-lg transition-colors">
+                                    <i data-lucide="download" class="w-3 h-3"></i> Download CSV
+                                </button>
+                                <button class="w-full flex items-center justify-center gap-2 bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 text-xs font-bold py-2.5 rounded-lg transition-colors">
+                                    <i data-lucide="copy" class="w-3 h-3"></i> Copy JSON
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Block: Order 1 on mobile, Order 2 on Desktop (right) -->
+                <div class="space-y-6 max-w-xl mx-auto lg:mx-0 text-center lg:text-left order-1 lg:order-2">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-xs font-semibold uppercase tracking-wide">
+                            <i data-lucide="table-2" class="w-3 h-3"></i> EDDII Engine
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                            Extract <span class="text-emerald-600 block sm:inline">Data.</span>
+                        </h2>
+                        <p class="text-lg text-slate-500 font-medium leading-relaxed">
+                            Convert static figures and tables into reusable CSVs and JSON code. Stop manually typing out data points from PDFs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SYSTEMATIC REVIEWS -->
+    <section class="w-full py-16 md:py-24 border-b border-slate-100 overflow-hidden relative bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Block: Order 1 on mobile, Order 1 on Desktop (left) -->
+                <div class="space-y-6 max-w-xl mx-auto lg:mx-0 text-center lg:text-left order-1">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100 text-cyan-700 text-xs font-semibold uppercase tracking-wide">
+                            <i data-lucide="layers" class="w-3 h-3"></i> AI Screening
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                            Systematic <span class="text-cyan-600 block sm:inline">Reviews.</span>
+                        </h2>
+                        <p class="text-lg text-slate-500 font-medium leading-relaxed">
+                            Use AI to screen, summarize, and organize large sets of papers 10x faster. Perfect for meta-analyses and literature reviews.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Image Block: Order 2 on mobile, Order 2 on Desktop (right) -->
+                <div class="relative w-full max-w-md mx-auto lg:max-w-none order-2">
+                    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 p-2 overflow-hidden">
+                        <div class="grid grid-cols-3 gap-2 bg-slate-50 p-2 rounded-xl">
+                            <!-- Column 1 -->
+                            <div class="flex flex-col gap-2">
+                                <div class="text-[10px] font-bold text-slate-400 uppercase text-center mb-1">Found (842)</div>
+                                <div class="bg-white p-2 rounded border border-slate-200 shadow-sm h-16 opacity-50"></div>
+                                <div class="bg-white p-2 rounded border border-slate-200 shadow-sm h-16 opacity-50"></div>
+                                <div class="bg-white p-2 rounded border border-slate-200 shadow-sm h-16 opacity-50"></div>
+                            </div>
+                            <!-- Column 2 (Active) -->
+                            <div class="flex flex-col gap-2 relative">
+                                <div class="text-[10px] font-bold text-cyan-600 uppercase text-center mb-1">Screening</div>
+                                <div class="bg-white p-3 rounded-lg border border-cyan-200 shadow-md h-24 relative z-10 flex flex-col justify-between">
+                                    <div class="h-2 w-3/4 bg-slate-200 rounded"></div>
+                                    <div class="h-2 w-full bg-slate-100 rounded"></div>
+                                    <div class="flex gap-1 mt-2">
+                                        <div class="flex-1 bg-green-100 text-green-700 text-[10px] flex items-center justify-center rounded cursor-pointer font-bold">In</div>
+                                        <div class="flex-1 bg-red-100 text-red-700 text-[10px] flex items-center justify-center rounded cursor-pointer font-bold">Out</div>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-2 rounded border border-slate-200 shadow-sm h-16 opacity-50"></div>
+                            </div>
+                            <!-- Column 3 -->
+                            <div class="flex flex-col gap-2">
+                                <div class="text-[10px] font-bold text-slate-400 uppercase text-center mb-1">Included (12)</div>
+                                <div class="bg-white p-2 rounded border border-green-200 shadow-sm h-16 border-l-4 border-l-green-500"></div>
+                                <div class="bg-white p-2 rounded border border-green-200 shadow-sm h-16 border-l-4 border-l-green-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PODCAST STUDIO -->
+    <section class="w-full py-16 md:py-24 border-b border-slate-100 overflow-hidden relative bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                 <!-- Image Block: Order 2 on mobile, Order 1 on Desktop (left) -->
+                 <div class="relative w-full max-w-md mx-auto lg:max-w-none mt-2 lg:mt-0 order-2 lg:order-1">
+                    <div class="relative w-full z-10">
+                        <div class="absolute -top-12 -left-12 w-64 h-64 bg-purple-400/10 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="relative bg-white rounded-2xl border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-visible">
+                            <!-- Player Header -->
+                            <div class="border-b border-slate-100 p-4 bg-slate-50/50 flex items-center justify-between rounded-t-2xl">
+                                <div class="flex items-center gap-2">
+                                    <span class="flex items-center gap-2">
+                                        <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+                                        <span class="text-xs font-semibold tracking-wide text-slate-400 uppercase">Paused</span>
+                                    </span>
+                                </div>
+                                <div class="flex gap-1.5">
+                                    <div class="h-1.5 w-1.5 rounded-full bg-slate-300"></div>
+                                    <div class="h-1.5 w-1.5 rounded-full bg-slate-300"></div>
+                                    <div class="h-1.5 w-1.5 rounded-full bg-slate-300"></div>
+                                </div>
+                            </div>
+                            <!-- Player Body -->
+                            <div class="p-6 space-y-6">
+                                <div class="flex flex-col sm:flex-row gap-5 items-center sm:items-start text-center sm:text-left">
+                                    <div class="h-20 w-20 shrink-0 rounded-xl bg-gradient-to-br from-slate-800 to-black flex items-center justify-center shadow-md mx-auto sm:mx-0 text-white">
+                                        <i data-lucide="music-2" class="w-8 h-8 opacity-80"></i>
+                                    </div>
+                                    <div class="min-w-0 flex-1 space-y-1 w-full">
+                                        <h3 class="text-lg font-semibold text-slate-900 tracking-tight leading-snug">Neural Network Perturbation Theory: Residual Corrections</h3>
+                                        <div class="space-y-1">
+                                            <p class="text-sm text-slate-500 font-medium">Generated from: arXiv:10919945-38c</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <!-- Waveform Simulation -->
+                                    <div class="flex items-end justify-between gap-1 h-10 w-full px-1 opacity-80 overflow-hidden">
+                                        <div class="w-1.5 rounded-full shrink-0 bg-purple-200 h-3"></div>
+                                        <div class="w-1.5 rounded-full shrink-0 bg-purple-400 h-5"></div>
+                                        <div class="w-1.5 rounded-full shrink-0 bg-purple-600 h-7"></div>
+                                        <div class="w-1.5 rounded-full shrink-0 bg-purple-500 h-6"></div>
+                                        <div class="w-1.5 rounded-full shrink-0 bg-purple-300 h-4"></div>
+                                        <div class="w-1.5 rounded-full shrink-0 bg-purple-200 h-3"></div>
+                                        <div class="w-1.5 rounded-full shrink-0 bg-purple-400 h-5"></div>
+                                        <div class="w-1.5 rounded-full shrink-0 bg-purple-600 h-8"></div>
+                                        <div class="w-1.5 bg-slate-200 rounded-full h-5 shrink-0"></div>
+                                        <div class="w-1.5 bg-slate-200 rounded-full h-4 shrink-0"></div>
+                                        <div class="w-1.5 bg-slate-200 rounded-full h-6 shrink-0"></div>
+                                        <div class="w-1.5 bg-slate-200 rounded-full h-3 shrink-0"></div>
+                                        <div class="w-1.5 bg-slate-200 rounded-full h-5 shrink-0"></div>
+                                        <div class="w-1.5 bg-slate-200 rounded-full h-8 shrink-0"></div>
+                                    </div>
+                                    <!-- Progress Bar -->
+                                    <div class="relative h-2 bg-slate-100 rounded-full overflow-hidden">
+                                        <div class="absolute top-0 left-0 h-full w-[65%] bg-purple-600 rounded-full"></div>
+                                    </div>
+                                    <div class="flex justify-between text-xs font-medium text-slate-400 font-mono">
+                                        <span>00:00:00</span><span>00:02:49</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Block: Order 1 on mobile, Order 2 on Desktop (right) -->
+                <div class="space-y-6 max-w-xl mx-auto lg:mx-0 text-center lg:text-left order-1 lg:order-2">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-xs font-semibold uppercase tracking-wide">
+                            <i data-lucide="mic-2" class="w-3 h-3"></i> Podcast Studio
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                            Turn research into <span class="text-purple-600 block sm:inline">conversations.</span>
+                        </h2>
+                        <p class="text-lg text-slate-500 font-medium leading-relaxed">
+                            Turn any paper into a two-voice podcast. Shareable audio for students and colleagues. Upload your paper. We generate a two-voice podcast episode instantly.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-4 justify-center lg:justify-start">
+                        <button class="inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white text-base font-semibold px-6 py-3.5 rounded-full shadow-lg shadow-purple-900/20 transition-all active:scale-95">
+                            <i data-lucide="audio-lines" class="w-5 h-5"></i>
+                            Generate PaperCast
+                        </button>
+                        <button class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 text-base font-medium px-6 py-3.5 rounded-full transition-colors">
+                            <i data-lucide="play-circle" class="w-5 h-5"></i>
+                            Hear Examples
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PUBLISH PREPRINTS -->
+    <section class="w-full py-16 md:py-24 border-b border-slate-100 overflow-hidden relative bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Block: Order 1 on mobile, Order 1 on Desktop (left) -->
+                <div class="space-y-6 max-w-xl mx-auto lg:mx-0 text-center lg:text-left order-1">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold uppercase tracking-wide">
+                            <i data-lucide="share-2" class="w-3 h-3"></i> Open Access
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                            Publish <span class="text-indigo-600 block sm:inline">Preprints.</span>
+                        </h2>
+                        <p class="text-lg text-slate-500 font-medium leading-relaxed">
+                            Get your manuscripts into the world with a permanent public record. Assign DOIs and get feedback before peer review.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-4 justify-center lg:justify-start">
+                        <button class="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-base font-semibold px-6 py-3.5 rounded-full shadow-lg shadow-indigo-900/20 transition-all">
+                            Upload Manuscript
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Image Block: Order 2 on mobile, Order 2 on Desktop (right) -->
+                <div class="relative w-full max-w-md mx-auto lg:max-w-none mt-2 lg:mt-0 order-2">
+                    <div class="bg-white rounded-xl border border-slate-200 shadow-2xl p-6 relative rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs font-mono">doi:10.1109/NB.2023.01</div>
+                            <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full">Published</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-xl mb-2">A Novel Approach to Quantum Error Correction in Low-Temperature Systems</h3>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="flex -space-x-2">
+                                <div class="w-8 h-8 rounded-full bg-slate-200 border-2 border-white"></div>
+                                <div class="w-8 h-8 rounded-full bg-slate-300 border-2 border-white"></div>
+                            </div>
+                            <span class="text-sm text-slate-500">Dr. Kline et al.</span>
+                        </div>
+                        <div class="bg-slate-50 rounded-lg p-3 text-sm text-slate-500 italic mb-4 border border-slate-100">
+                            "We propose a new error correction code that achieves 99.9% fidelity..."
+                        </div>
+                        <div class="flex gap-3 text-xs font-semibold text-slate-500">
+                            <span class="flex items-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> 1.2k Views</span>
+                            <span class="flex items-center gap-1"><i data-lucide="download" class="w-4 h-4"></i> 340 Downloads</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. BUILD AUDIENCE -->
+    <section class="w-full py-16 md:py-24 border-b border-slate-100 overflow-hidden relative bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Image Block: Order 2 on mobile, Order 1 on Desktop (left) -->
+                <div class="relative w-full max-w-md mx-auto lg:max-w-none order-2 lg:order-1">
+                    <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 p-6">
+                        <div class="flex items-start gap-4 mb-6">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-pink-400 to-orange-400 p-[2px] shrink-0">
+                                <div class="w-full h-full bg-white rounded-full p-0.5">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=150&amp;q=80" class="w-full h-full rounded-full object-cover" alt="Profile">
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h3 class="font-bold text-lg text-slate-900">Sarah Jenning</h3>
+                                        <p class="text-sm text-slate-500">Molecular Biologist @ MIT</p>
+                                    </div>
+                                    <button class="bg-slate-900 text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-slate-800">Follow</button>
+                                </div>
+                                <div class="flex gap-4 mt-3 text-sm">
+                                    <span><strong class="text-slate-900">1.2k</strong> Followers</span>
+                                    <span><strong class="text-slate-900">85</strong> Papers</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-100 pt-4">
+                            <div class="flex gap-3">
+                                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0">💬</div>
+                                <div>
+                                    <p class="text-sm text-slate-800"><span class="font-bold">Sarah</span> commented on <span class="text-blue-600 font-medium cursor-pointer">CRISPR Editing v2</span></p>
+                                    <p class="text-sm text-slate-500 mt-1">"The methodology section in this preprint is incredibly detailed. Have you considered..."</p>
+                                    <div class="flex gap-4 mt-2 text-xs text-slate-400">
+                                        <span class="hover:text-slate-600 cursor-pointer">Like</span>
+                                        <span class="hover:text-slate-600 cursor-pointer">Reply</span>
+                                        <span>2h ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Block: Order 1 on mobile, Order 2 on Desktop (right) -->
+                <div class="space-y-6 max-w-xl mx-auto lg:mx-0 text-center lg:text-left order-1 lg:order-2">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-50 border border-pink-100 text-pink-700 text-xs font-semibold uppercase tracking-wide">
+                            <i data-lucide="users" class="w-3 h-3"></i> Network
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+                            Build <span class="text-pink-600 block sm:inline">Audience.</span>
+                        </h2>
+                        <p class="text-lg text-slate-500 font-medium leading-relaxed">
+                            Connect with other researchers. Follow profiles, comment, and build a following. Science is better when we talk about it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 px-4 sm:px-6 relative overflow-hidden bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">Turn your next paper into impact,<br>not just another PDF.</h2>
+            <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+                Join thousands of researchers using AI to validate, visualize, and amplify their work on NobleBlocks.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-slate-900 text-white text-base font-bold py-4 px-10 rounded-full transition-all shadow-xl shadow-slate-900/20 hover:scale-105">
+                    Create your NobleBlocks account
+                </button>
+            </div>
+            <p class="mt-6 text-xs text-slate-500">No credit card required for Starter plan.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 pt-16 pb-12 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Top Section: Brand + Links -->
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+                <!-- Brand & Contact -->
+                <div class="flex flex-col gap-5 max-w-xs">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold tracking-tight text-lg">
+                            Nb
+                        </div>
+                        <span class="font-bold text-lg tracking-tight text-slate-900">NobleBlocks</span>
+                    </div>
+                    <a href="mailto:info@nobleblocks.com" class="text-sm font-medium text-slate-500 hover:text-slate-900 flex items-center gap-2 transition-colors">
+                        <i data-lucide="mail" class="w-4 h-4"></i> info@nobleblocks.com
+                    </a>
+                </div>
+
+                <!-- Navigation Links (Headerless Grid) -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap gap-x-8 gap-y-4 text-sm font-medium text-slate-500">
+                    <a href="#" class="hover:text-slate-900 transition-colors">About</a>
+                    <a href="#" class="hover:text-slate-900 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-900 transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-slate-900 transition-colors">Community Guideline</a>
+                    <a href="#" class="hover:text-slate-900 transition-colors">Token Disclaimer</a>
+                    <a href="#" class="hover:text-slate-900 transition-colors">Cookie Policy</a>
+                    <a href="#" class="hover:text-slate-900 transition-colors">Peer Review Policy</a>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Token + Copyright -->
+            <div class="border-t border-slate-100 pt-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                <!-- Technical Detail -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full lg:w-auto">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide shrink-0">NOBL Contract:</span>
+                    <div class="group flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 w-full sm:w-auto transition-colors hover:border-slate-300 cursor-pointer max-w-full">
+                        <code class="text-[11px] font-mono text-slate-600 truncate flex-1 sm:flex-none">0xe3e72Ae23dd5bb0EFd7dfE733A58bF6aD57C3945</code>
+                        <span class="flex items-center gap-1 text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 shrink-0">
+                            Copied
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Actions & Copyright -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 w-full lg:w-auto justify-between lg:justify-end">
+                    <span class="text-xs text-slate-400 font-medium order-2 sm:order-1">© 2025 NobleBlocks Ltd.</span>
+                    <button class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-5 rounded-lg transition-all order-1 sm:order-2">
+                        Get NOBL
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons({
+            attrs: {
+                'stroke-width': 1.5
+            }
+        });
+    </script>
+
+</body></html>
