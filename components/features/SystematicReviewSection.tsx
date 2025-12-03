@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Layers } from 'lucide-react';
 import Badge from '../ui/Badge';

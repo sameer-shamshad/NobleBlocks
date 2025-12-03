@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { ShieldAlert, XCircle, AlertTriangle } from 'lucide-react';
 

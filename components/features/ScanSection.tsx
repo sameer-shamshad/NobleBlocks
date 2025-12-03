@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { ScanLine, AlertTriangle, Link2Off } from 'lucide-react';
 import Badge from '../ui/Badge';

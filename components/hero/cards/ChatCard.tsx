@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Bot, BarChart2, Play } from 'lucide-react';
 

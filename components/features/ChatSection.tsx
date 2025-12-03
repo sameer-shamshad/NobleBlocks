@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Bot, Mic, ArrowUp, Image as ImageIcon, MessageSquareDashed } from 'lucide-react';
 import Badge from '../ui/Badge';

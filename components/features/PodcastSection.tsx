@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Mic2, AudioLines, PlayCircle, Music2 } from 'lucide-react';
 import Badge from '../ui/Badge';

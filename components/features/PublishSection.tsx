@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Share2, Eye, Download } from 'lucide-react';
 import Badge from '../ui/Badge';

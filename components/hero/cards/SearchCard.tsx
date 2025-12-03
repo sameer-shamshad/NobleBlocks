@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Search, Bookmark, Quote, Star } from 'lucide-react';
 

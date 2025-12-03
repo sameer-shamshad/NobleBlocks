@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Table2, Download, Copy } from 'lucide-react';
 import Badge from '../ui/Badge';

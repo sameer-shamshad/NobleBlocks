@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import ValidationCard from './cards/ValidationCard';
 import PodcastCard from './cards/PodcastCard';

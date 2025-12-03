@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Mic2, Rewind, Pause, FastForward, Volume2 } from 'lucide-react';
 
