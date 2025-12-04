@@ -11,7 +11,7 @@ export default function HeroContent() {
       </div>
       
       <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 text-slate-900">
-        Do more with your papers than just <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600">reading them.</span>
+        Do more with your papers than just <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">reading them.</span>
       </h1>
       
       <p className="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed font-medium px-2 sm:px-0">

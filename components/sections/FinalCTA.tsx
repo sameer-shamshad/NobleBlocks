@@ -12,7 +12,7 @@ export default function FinalCTA() {
           Join thousands of researchers using AI to validate, visualize, and amplify their work on NobleBlocks.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="shadow-xl shadow-slate-900/20 hover:scale-105">
+          <Button size="lg" className="font-bold shadow-xl shadow-slate-900/20 hover:scale-105">
             Create your NobleBlocks account
           </Button>
         </div>

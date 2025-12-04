@@ -1,4 +1,5 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap'); */
 
 :root {
   --background: #ffffff;
@@ -21,7 +22,6 @@
 body {
   background: white;
   color: var(--foreground);
-  font-family: var(--font-plus-jakarta-sans), 'Plus Jakarta Sans', sans-serif;
 }
 
 /* Glass Panel Effect */
